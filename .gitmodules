@@ -1,0 +1,18 @@
+[submodule "game/base/progs"]
+	path = game/base/progs
+	url = https://github.com/Qfusion/asprogs.git
+[submodule "sdk/source"]
+	path = sdk/source
+	url = https://github.com/Qfusion/qfusion
+[submodule "game/base/glsl"]
+	path = game/base/glsl
+	url = https://github.com/Qfusion/glsl
+[submodule "game/base/ui"]
+	path = game/base/ui
+	url = https://github.com/Qfusion/rocketui
+[submodule "game/base/huds"]
+	path = game/base/huds
+	url = https://github.com/Qfusion/huds
+[submodule "game/base/l10n"]
+	path = game/base/l10n
+	url = https://github.com/Qfusion/l10n
