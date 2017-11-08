@@ -1,0 +1,50 @@
+Weights
+{
+	NativeGoals
+	{
+		AttackOutOfDespair
+		{
+			DmgUpperBound 106.142097
+			DmgFracCoeff 1.325430
+			NmyThreatExtraWeight 0.694188
+			BaseWeight 0.368784
+			NmyFireDelayThreshold 381.960693
+		}
+		ReactToEnemyLost
+		{
+			OffCoeff 2.522250
+			BaseWeight 0.560937
+		}
+		ReactToThreat
+		{
+			OffCoeff 0.434584
+			WeightBound 1.792274
+			DmgFracCoeff 1.418220
+			BaseWeight 0.574010
+		}
+		ReactToDanger
+		{
+			WeightBound 2.451053
+			DmgFracCoeff 4.491720
+			BaseWeight 0.513910
+		}
+		RunAway
+		{
+			NmyThreatCoeff 1.504315
+			OffCoeff 2.369720
+			BaseWeight 0.067961
+		}
+		KillEnemy
+		{
+			NmyThreatCoeff 1.696826
+			OffCoeff 2.457467
+			BaseWeight 0.330659
+		}
+		GrabItem
+		{
+			SelectedGoalWeightScale 0.885405
+			BaseWeight 0.347829
+		}
+	}
+}
+

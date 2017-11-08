@@ -1,193 +1,49 @@
 Weights
 {
-	NativeActions
-	{
-		RunAway
-		{
-			CloseRange
-			{
-				GoodNmyWeapDmgRatio 0.703860
-				BaseDmgRatio 0.802790
-			}
-			MiddleRange
-			{
-				GoodWeapDmgRatio 1.031550
-				GoodWeapDmgToBeKilled 28.470215
-				BaseDmgRatio 0.772972
-				BaseDmgToBeKilled 76.185921
-			}
-		}
-		AttackFromCurrentPosition
-		{
-			CloseRange
-			{
-				GoodNmyWeapMinusOffCoeff 0.666312
-				GoodNmyWeapMinusDmgRatio 0.859928
-				BaseOffCoeff 0.601175
-				BaseDmgRatio 0.956073
-			}
-			MiddleRange
-			{
-				OffCoeff 1.182900
-				DmgRatio 1.124090
-			}
-			FarRange
-			{
-				OffCoeff 2.541227
-				DmgRatio 1.043496
-			}
-		}
-		GotoAvailableGoodPosition
-		{
-			CloseRange
-			{
-				GoogNmyWeapMinusOffCoeff 0.162267
-				GoodNmyWeapMinusDmgRatio 0.454062
-				BaseOffCoeff 0.378676
-				BaseDmgRatio 1.041172
-			}
-			MiddleRange
-			{
-				GoogNmyWeapMinusOffCoeff 0.196930
-				GoodNmyWeapMinusDmgRatio 0.464122
-				BaseOffCoeff 0.551906
-				BaseDmgRatio 0.921958
-			}
-		}
-		SteadyCombat
-		{
-			CloseRange
-			{
-				OffCoeff 0.204781
-				DmgRatio 1.344957
-			}
-			MiddleRange
-			{
-				OffCoeff 0.250010
-				DmgRatio 1.155835
-			}
-			FarRange
-			{
-				OffCoeff 0.425326
-				DmgRatio 0.984548
-			}
-			SniperRange
-			{
-				OffCoeff 0.543256
-				DmgRatio 1.292363
-			}
-		}
-		RetreatToTacticalSpot
-		{
-			MiddleRange
-			{
-				GoodNmyWeapMinusOffCoeff 0.476823
-				GoodNmyWeapMinusDmgRatio 0.782100
-				BaseOffCoeff 0.514844
-				BaseDmgRatio 1.394388
-			}
-			FarRange
-			{
-				GoodNmyWeapMinusOffCoeff 0.322580
-				GoodNmyWeapMinusDmgRatio 0.396315
-				BaseOffCoeff 0.534811
-				BaseDmgRatio 1.471781
-			}
-		}
-		AdvanceToTacticalSpot
-		{
-			MiddleRange
-			{
-				NoThreateningEnemy
-				{
-					GoodNmyWeapMinusDmgRatio 0.357664
-					BaseDmgRatio 0.774337
-					OffCoeff 0.718764
-				}
-				HasThreateningEnemy
-				{
-					GoodNmyWeapMinusDmgRatio 0.317806
-					BaseDmgRatio 1.286404
-					OffCoeff 0.644935
-					BaseDmgToBeKilled 196.787872
-				}
-			}
-			FarRange
-			{
-				NoThreateningEnemy
-				{
-					BaseDmgToBeKilled 70.468437
-				}
-				HasThreateningEnemy
-				{
-					GoodNmyWeapOffCoeff 0.312507
-					GoodNmyWeapBaseDmgRatio 1.272662
-					BaseDmgToBeKilled 88.600533
-				}
-			}
-			SniperRange
-			{
-				GoodNmyWeapMinusDmgRatio 0.234386
-				NoThreateningEnemy
-				{
-					BaseDmgToBeKilled 36.148945
-					GoodNmyWeapOffCoeff 0.204996
-					GoodNmyWeapDmgRatio 1.441037
-				}
-				HasThreateningEnemy
-				{
-					GoodNmyWeapMinusOffCoeff 0.296676
-					BaseOffCoeff 0.709314
-					BaseDmgRatio 0.999704
-					BaseDmgToBeKilled 92.350258
-				}
-			}
-		}
-	}
 	NativeGoals
 	{
 		AttackOutOfDespair
 		{
-			DmgUpperBound 138.003784
-			DmgFracCoeff 1.165383
-			NmyThreatExtraWeight 0.226799
-			BaseWeight 0.789484
-			NmyFireDelayThreshold 200.000000
+			DmgUpperBound 156.219147
+			DmgFracCoeff 1.294409
+			NmyThreatExtraWeight 0.333129
+			BaseWeight 0.524561
+			NmyFireDelayThreshold 629.455811
 		}
 		ReactToEnemyLost
 		{
-			OffCoeff 1.099427
-			BaseWeight 0.602053
+			OffCoeff 1.393950
+			BaseWeight 0.713681
 		}
 		ReactToThreat
 		{
-			OffCoeff 0.019017
-			WeightBound 1.285352
-			DmgFracCoeff 2.109232
-			BaseWeight 0.634888
+			OffCoeff 0.512546
+			WeightBound 2.797929
+			DmgFracCoeff 2.524402
+			BaseWeight 0.650992
 		}
 		ReactToDanger
 		{
-			WeightBound 3.813581
-			DmgFracCoeff 3.117993
-			BaseWeight 0.564408
+			WeightBound 4.944973
+			DmgFracCoeff 3.041134
+			BaseWeight 0.716658
 		}
 		RunAway
 		{
-			NmyThreatCoeff 2.951937
-			OffCoeff 1.114983
-			BaseWeight 0.326240
+			NmyThreatCoeff 2.725345
+			OffCoeff 2.279168
+			BaseWeight 0.047920
 		}
 		KillEnemy
 		{
-			NmyThreatCoeff 1.742781
-			OffCoeff 2.770060
-			BaseWeight 0.358865
+			NmyThreatCoeff 1.149994
+			OffCoeff 2.723878
+			BaseWeight 0.324565
 		}
 		GrabItem
 		{
-			SelectedGoalWeightScale 1.058717
-			BaseWeight 0.492710
+			SelectedGoalWeightScale 0.755716
+			BaseWeight 0.141485
 		}
 	}
 }
