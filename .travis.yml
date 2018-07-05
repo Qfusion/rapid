@@ -1,0 +1,45 @@
+sudo: false
+install: true
+dist: xenial
+notifications:
+  email: false
+  
+matrix:
+  include:
+    - os: linux
+      language: c++
+      compiler: clang
+      env: QF_ARCH=x86_64
+      addons:
+        apt:
+          packages:
+            - clang
+            - cmake
+            - build-essential
+            - libsdl2-dev
+            - libopenal-dev
+            - libjpeg8-dev
+            - libvorbis-dev
+            - libtheora-dev
+            - libfreetype6-dev
+            - zlib1g-dev
+            - libcurl4-gnutls-dev
+
+install:
+  - export CC=clang CXX=clang++ && git submodule update --init --recursive && cd sdk/source/source && cmake . && make -j4
+  - cd build
+  - mkdir -p base/configs/server/gametypes
+  - echo -e "wait\\nwait\\nquit" > base/config.cfg
+  - echo -e "#!/bin/bash\\n./qfusion.x86_64 +set developer 1 +set fs_cdpath $TRAVIS_BUILD_DIR/game" > ./run_client.sh && chmod +x ./run_client.sh
+  - echo -e "#!/bin/bash\\n./qfusion_server.x86_64 +set developer 1 +set fs_cdpath $TRAVIS_BUILD_DIR/game" > run_server.sh && chmod +x run_server.sh
+  - echo -e "#!/bin/bash\\necho -e \"set g_gametype_generic 0\\nset g_gametype \$1\\nmap box\" > base/dedicated_autoexec_postinit.cfg && echo -e \"wait\\nwait\\nquit\" >base/configs/server/gametypes/\$1.cfg && ./run_server.sh" > run_gt.sh && chmod +x run_gt.sh
+ 
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3
+  - "export GALLIUM_DRIVER=\"softpipe\""
+
+script:
+  - ./run_client.sh
+  - find $TRAVIS_BUILD_DIR/game/base/progs/gametypes -maxdepth 1 -type f -name *.gt -exec basename {} .gt \; | xargs -I{} ./run_gt.sh {} \;
