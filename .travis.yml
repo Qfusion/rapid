@@ -28,7 +28,9 @@ matrix:
 install:
   - export CC=clang CXX=clang++ && git submodule update --init --recursive && cd sdk/source/source && cmake . && make -j4
   - cd build
+  - mkdir -p base/cache
   - mkdir -p base/configs/server/gametypes
+  - echo -e "rm -rf base/cache/*" > ./clear_cache.sh && chmod +x ./clear_cache.sh
   - echo -e "wait\\nwait\\nquit" > base/config.cfg
   - echo -e "#!/bin/bash\\n./qfusion.x86_64 +set developer 1 +set fs_cdpath $TRAVIS_BUILD_DIR/game" > ./run_client.sh && chmod +x ./run_client.sh
   - echo -e "#!/bin/bash\\n./qfusion_server.x86_64 +set developer 1 +set fs_cdpath $TRAVIS_BUILD_DIR/game" > run_server.sh && chmod +x run_server.sh
@@ -41,5 +43,6 @@ before_script:
   - "export GALLIUM_DRIVER=\"softpipe\""
 
 script:
-  - ./run_client.sh
-  - find $TRAVIS_BUILD_DIR/game/base/progs/gametypes -maxdepth 1 -type f -name *.gt -exec basename {} .gt \; | xargs -I{} ./run_gt.sh {} \;
+  - ./clear_cache.sh && ./run_client.sh
+  - ./clear_cache.sh && cp $TRAVIS_BUILD_DIR/tests/data/glsl.cache base/cache/ && ./run_client.sh
+  - ./clear_cache.sh && find $TRAVIS_BUILD_DIR/game/base/progs/gametypes -maxdepth 1 -type f -name *.gt -exec basename {} .gt \; | xargs -I{} ./run_gt.sh {} \;
