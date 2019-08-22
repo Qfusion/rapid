@@ -3,7 +3,9 @@ install: true
 dist: xenial
 notifications:
   email: false
-  
+services:
+  - xvfb
+
 matrix:
   include:
     - os: linux
@@ -38,9 +40,6 @@ install:
   - echo -e "#!/bin/bash\\necho -e \"set g_gametype_generic 0\\nset g_gametype \$1\\nmap box\" > base/dedicated_autoexec_postinit.cfg && echo -e \"wait\\nwait\\nquit\" >base/configs/server/gametypes/\$1.cfg && ./run_server.sh" > run_gt.sh && chmod +x run_gt.sh
  
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3
   - "export GALLIUM_DRIVER=\"softpipe\""
 
 script:
