@@ -35,8 +35,8 @@ install:
   - mkdir -p base/configs/server/gametypes
   - echo -e "rm -rf base/cache/*" > ./clear_cache.sh && chmod +x ./clear_cache.sh
   - echo -e "wait\\nwait\\nquit" > base/config.cfg
-  - echo -e "#!/bin/bash\\n./qfusion.x86_64 +set developer 1 +set fs_cdpath $TRAVIS_BUILD_DIR/game +set fs_usehomedir 0" > ./run_client.sh && chmod +x ./run_client.sh
-  - echo -e "#!/bin/bash\\n./qfusion_server.x86_64 +set developer 1 +set fs_cdpath $TRAVIS_BUILD_DIR/game +set fs_usehomedir 0" > run_server.sh && chmod +x run_server.sh
+  - echo -e "#!/bin/bash\\n./qfusion +set developer 1 +set fs_cdpath $TRAVIS_BUILD_DIR/game +set fs_usehomedir 0" > ./run_client.sh && chmod +x ./run_client.sh
+  - echo -e "#!/bin/bash\\n./qfusion_server +set developer 1 +set fs_cdpath $TRAVIS_BUILD_DIR/game +set fs_usehomedir 0" > run_server.sh && chmod +x run_server.sh
   - echo -e "#!/bin/bash\\necho -e \"set g_gametype_generic 0\\nset g_gametype \$1\\nmap box\" > base/dedicated_autoexec_postinit.cfg && echo -e \"wait\\nwait\\nquit\" >base/configs/server/gametypes/\$1.cfg && ./run_server.sh" > run_gt.sh && chmod +x run_gt.sh
  
 before_script:
